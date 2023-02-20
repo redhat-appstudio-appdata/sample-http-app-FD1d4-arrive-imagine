@@ -25,7 +25,7 @@ spec:
         app.kubernetes.io/instance: sample-reactive-http-service-pgkl
     spec:
       containers:
-      - image: quay.io/redhat-appstudio/user-workload:FD1d4-sample-reactive-http-service-pgkl
+      - image: quay.io/redhat-appstudio/user-workload@sha256:e31f04e102a66acdede32f9bd33068cb51c639c1a29e171cea1352c3a4395f49
         name: sample-reactive-http-app
         ports:
         - containerPort: 8081
