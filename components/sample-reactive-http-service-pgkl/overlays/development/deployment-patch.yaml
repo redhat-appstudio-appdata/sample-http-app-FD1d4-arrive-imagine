@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: sample-reactive-http-service-pgkl
+  namespace: rh-ee-jbergfel-tenant
+spec:
+  replicas: 3
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload@sha256:e31f04e102a66acdede32f9bd33068cb51c639c1a29e171cea1352c3a4395f49
+        name: sample-reactive-http-app
+        resources: {}
+status: {}
