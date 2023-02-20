@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: sample-reactive-http-service-pgkl
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: sample-reactive-http-service-pgkl
+    app.kubernetes.io/part-of: sample-http-app
+  name: sample-reactive-http-service-pgkl
+  namespace: rh-ee-jbergfel-tenant
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-reactive-http-app
+      app.kubernetes.io/instance: sample-reactive-http-service-pgkl
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sample-reactive-http-app
+        app.kubernetes.io/instance: sample-reactive-http-service-pgkl
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload:FD1d4-sample-reactive-http-service-pgkl
+        name: sample-reactive-http-app
+        ports:
+        - containerPort: 8081
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 500Mi
+          requests:
+            cpu: 10m
+            memory: 300Mi
+status: {}

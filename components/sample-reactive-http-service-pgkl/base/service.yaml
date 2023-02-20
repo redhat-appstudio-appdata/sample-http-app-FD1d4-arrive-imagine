@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/path: /actuator/prometheus
+    prometheus.io/port: "8080"
+    prometheus.io/scrape: "true"
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: sample-reactive-http-service-pgkl
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: sample-reactive-http-service-pgkl
+    app.kubernetes.io/part-of: sample-http-app
+  name: sample-reactive-http-service-pgkl
+  namespace: rh-ee-jbergfel-tenant
+spec:
+  ports:
+  - name: http-8081
+    port: 8081
+    protocol: TCP
+    targetPort: 8081
+  selector:
+    app: sample-reactive-http-app
+    app.kubernetes.io/instance: sample-reactive-http-service-pgkl
+status:
+  loadBalancer: {}

@@ -1,0 +1,21 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: sample-reactive-http-service-pgkl
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: sample-reactive-http-service-pgkl
+    app.kubernetes.io/part-of: sample-http-app
+  name: sample-reactive-http-service-pgkl
+  namespace: rh-ee-jbergfel-tenant
+spec:
+  path: /
+  port:
+    targetPort: 8081
+  to:
+    kind: Service
+    name: sample-reactive-http-service-pgkl
+    weight: null
+status: {}
